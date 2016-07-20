@@ -1,0 +1,33 @@
+{
+  "name": "typescript-entorno-desarrollo",
+  "version": "1.0.0",
+  "description": "Entorno de desarrollo para trabajar con typescript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nemesis866/typescript_entorno_desaarrollo.git"
+  },
+  "keywords": [
+    "typescript",
+    "entorno",
+    "desarrollo",
+    "gulp"
+  ],
+  "author": "Paulo Andrade",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nemesis866/typescript_entorno_desaarrollo/issues"
+  },
+  "homepage": "https://github.com/nemesis866/typescript_entorno_desaarrollo#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-typescript": "^2.13.6",
+    "gulp-uglify": "^1.5.4",
+    "gulp-util": "^3.0.7",
+    "merge2": "^1.0.2"
+  }
+}

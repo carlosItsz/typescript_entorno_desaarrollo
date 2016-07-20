@@ -8,13 +8,15 @@ var concat = require('gulp-concat'), // Concatena archivos
 // Rutas
 var paths = {
 	js: './app/release/**/*.js',
-	ts: './app/**/*.ts'
+	ts: './app/ts/**/*.ts'
 };
 
 // Opciones
 var tsProject = ts.createProject({
     declaration: true, // Genera el archivo d.ts correspondiente
-    noExternalResolve: true // No resuelve archivos que no esten en el input
+    noExternalResolve: true, // No resuelve archivos que no esten en el input
+    removeComments: true, // Remueve los comentarios
+    allowJs: true
 });
 
 // Tarea por defecto

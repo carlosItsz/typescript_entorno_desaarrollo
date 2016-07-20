@@ -1,6 +1,8 @@
 var concat = require('gulp-concat'), // Concatena archivos
+	connect = require('gulp-connect'), // Dependencia para crear un servidor local
 	gulp = require('gulp'),
 	gutil = require('gulp-util'), // Funciones de utilidad para gulp
+	historyApiFallback = require('connect-history-api-fallback'), // historial para SPA
 	merge = require('merge2'),
 	ts = require('gulp-typescript'),
 	uglify = require('gulp-uglify'); // Minifica archivos
@@ -38,10 +40,23 @@ gulp.task('minify-js', function() {
 	.pipe(gulp.dest('./app/build'))
 });
 
+// Creamos el servidor con la opcion livereload activada y con
+// el historial activado para app SPA
+gulp.task('server', function (){
+	connect.server({
+		root: './app',
+		port: 3000,
+		livereload: true,
+		middleware: function (connect, opt){
+			return [historyApiFallback({})];
+		}
+	});
+});
+
 // Tareas watch
 gulp.task('watch', ['scripts'], function() {
     gulp.watch(paths.ts, ['scripts']);
 });
 
 // Tareas por defecto
-gulp.task('default', ['watch']);
+gulp.task('default', ['server', 'watch']);
